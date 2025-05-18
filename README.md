@@ -83,3 +83,50 @@ Siga estes passos para ter o Horta Inteligente rodando na sua máquina:
     A aplicação deverá abrir automaticamente no seu navegador web.
 
 ## 📂 Estrutura do Projeto (Visão Geral)
+
+horta-inteligente-app/
+├── app.py                     # Script principal da aplicação Streamlit
+├── agentes/                   # Contém as classes dos diferentes agentes de IA
+│   ├── init.py
+│   ├── agente_localizador.py
+│   ├── agente_gestor_perfil.py
+│   ├── agente_estilizador.py      # Define esquema JSON, formata guias
+│   ├── agente_pesquisador.py    # Busca dados de plantas com Gemini
+│   ├── agente_recomendador.py   # Lógica de sugestão e pontuação
+│   ├── agente_gerador_guia.py   # Orquestra a geração do guia
+│   ├── agente_redator_ia.py     # Gera textos amigáveis (justificativas, dicas)
+│   └── agente_conector_comercial.py # Gera links para compra
+├── utils/                     # Módulos com funções auxiliares
+│   ├── init.py
+│   └── api_clients.py         # Funções para Nominatim, simulações, e chamada ao Gemini
+├── assets/                    # Para imagens estáticas como logos, imagem da tela inicial
+│   └── imagem_inicial.png     # Exemplo
+├── .env                       # Para armazenar sua chave de API localmente (NÃO VERSIONAR)
+├── requirements.txt           # Lista de dependências Python
+├── .gitignore                 # Especifica arquivos e pastas a serem ignorados pelo Git
+└── README.md                  # Este arquivo!
+
+## 📖 Como Usar a Aplicação
+
+1.  **Tela Inicial:** Ao abrir, você verá uma tela de boas-vindas. Clique em "Iniciar Minha Horta!".
+2.  **Localização:** Informe sua cidade e estado ou CEP para que o sistema entenda suas condições ambientais regionais.
+3.  **Suas Preferências:**
+    * Escolha como e onde você planeja plantar (vasos, canteiros, tamanho do espaço).
+    * Informe quanto tempo pode dedicar semanalmente.
+    * Liste os tipos de alimentos que gostaria de cultivar (ex: "Frutos, Ervas" ou "todos").
+4.  **Sugestões:** O sistema, com a ajuda do Gemini, analisará suas informações e apresentará uma lista de plantas sugeridas, com nível de adequação, dificuldade e dicas.
+5.  **Guia de Cultivo:** Clique em "Ver Guia Detalhado" para qualquer planta sugerida e receba instruções completas e personalizadas sobre como cultivá-la.
+6.  **Onde Encontrar:** No final do guia, você encontrará links para buscar sementes/mudas.
+7.  **Nova Consulta:** Use o botão na barra lateral ou no final do fluxo para iniciar uma nova pesquisa.
+
+## 🔮 Próximos Passos e Melhorias Futuras (Sugestões)
+
+* Implementar um Agente Revisor IA para refinar ainda mais os textos gerados.
+* Expandir o banco de dados de informações sobre plantas ou a capacidade do Gemini de encontrar dados para mais espécies.
+* Integrar com APIs de previsão do tempo em tempo real (se os limites de cota permitirem).
+* Permitir que o usuário salve suas plantas "plantadas" e acompanhe seu desenvolvimento.
+* Interface visual ainda mais elaborada e interativa.
+
+---
+
+Sinta-se à vontade para usar, modificar e expandir este projeto!
