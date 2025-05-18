@@ -6,7 +6,7 @@ Bem-vindo(a) à Horta Inteligente! Seu assistente pessoal com Inteligência Arti
 
 https://hortainteligente-imersaoia.streamlit.app/
 
-## :desktop: Exibição de funcionamento
+## :desktop:  Exibição de funcionamento
 
 Tela Inicial
 ![tela_inicial](https://github.com/user-attachments/assets/97585c7f-a2b6-4021-88e8-ee37f2f4a5fb)
