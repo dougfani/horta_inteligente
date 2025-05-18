@@ -1,0 +1,154 @@
+/* assets/style.css */
+
+/* Importa as fontes do Google Fonts no topo do seu CSS */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&family=Poppins:wght@500;600;700&display=swap');
+
+body {
+    font-family: 'Nunito Sans', sans-serif;
+    color: #333; 
+    background-color: #FAFDFB; 
+}
+
+/* Títulos */
+h1, h2, h3 {
+    font-family: 'Poppins', sans-serif;
+    color: #2E7D32; 
+}
+h1 { /* st.title */
+    text-align: center;
+    margin-bottom: 1rem;
+}
+h2 { /* st.header */
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+h3 { /* st.subheader e ### do Markdown */
+    color: #388E3C; 
+    margin-top: 1.5rem;
+}
+
+/* Botões */
+.stButton>button {
+    border: 2px solid #FF8C00;
+    border-radius: 20px;
+    color: #FF8C00; 
+    background-color: white;
+    padding: 10px 24px;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+.stButton>button:hover {
+    border-color: #E67E22;
+    background-color: #FF8C00;
+    color: white;
+}
+/* Botão primário (Iniciar Minha Horta) */
+/* Usaremos uma classe customizada para ele se necessário, ou a chave do botão */
+.start-button button, .stButton[key*="btn_iniciar_app"] button {
+    background-color: #FF8C00;
+    color: white;
+    font-size: 1.1em;
+}
+.start-button button:hover, .stButton[key*="btn_iniciar_app"] button:hover {
+    background-color: #E67E22;
+    color: white;
+}
+
+/* Inputs de Texto e Rádio */
+.stTextInput input, .stTextArea textarea {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+.stRadio div[role="radiogroup"] > label { 
+    background-color: #f8f9fa;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    border: 1px solid #e0e0e0;
+}
+
+/* Cards de Sugestão */
+.suggestion-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-left: 5px solid #4CAF50;
+}
+.suggestion-card h3 { 
+    margin-top: 0;
+    color: #2E7D32;
+}
+.suggestion-card .stButton>button {
+    border-color: #4CAF50;
+    color: #4CAF50;
+    background-color: transparent;
+}
+.suggestion-card .stButton>button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Expanders */
+.stExpander {
+    border: 1px solid #e0e0e0 !important;
+    border-radius: 8px !important;
+    background-color: #fdfdfd !important;
+}
+.stExpander header {
+    font-weight: bold;
+    color: #388E3C;
+}
+
+/* Guia de Cultivo - Markdown */
+.guide-content p, .guide-content li {
+    line-height: 1.7; 
+    font-size: 1.05em;
+    color: #444;
+}
+.guide-content strong {
+    color: #2E7D32;
+}
+
+/* Disclaimer e Infos */
+.stAlert {
+    border-radius: 8px;
+}
+.stAlert[data-baseweb="alert"] > div:nth-child(2) { 
+    font-size: 0.95em;
+}
+
+/* Imagem na tela de boas-vindas */
+.welcome-image img {
+    max-width: 250px; 
+    max-height: 200px;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Estilos específicos para o welcome-container (tela de boas-vindas) */
+.welcome-container { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    padding: 1rem; 
+    min-height: 80vh; 
+}
+.welcome-title { color: #2E4031; font-size: 2.6em; font-weight: bold; margin-bottom: 0.3rem;}
+.welcome-subtitle { color: #4A6A4F; font-size: 1.5em; margin-bottom: 1.5rem;}
+.catchy-phrase { color: #555; font-size: 1.0em; margin: 0.2rem 0;}
+
+/* Ajustes para telas menores (Mobile) */
+@media (max-width: 600px) {
+    .welcome-title { font-size: 2em; }
+    .welcome-subtitle { font-size: 1.2em; }
+    .catchy-phrase { font-size: 0.9em; }
+    .start-button button { font-size: 1em; padding: 0.6em 1.5em; }
+    .welcome-image img { max-width: 180px; max-height: 160px;} /* Imagem menor no mobile */
+}

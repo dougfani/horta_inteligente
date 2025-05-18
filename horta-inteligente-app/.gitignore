@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+.env  # MUITO IMPORTANTE!
+*.log
+gemini_json_error_response.txt # Seus arquivos de log de erro
