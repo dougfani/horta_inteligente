@@ -1,7 +1,26 @@
+# Ambiente Virtual Python
 .venv/
+venv/
+ENV/
+env/
+
+# Arquivos de Cache e Compilados do Python
 __pycache__/
-*.pyc
-.DS_Store
-.env  # MUITO IMPORTANTE!
+*.py[cod]
+*$py.class
+
+# Arquivos de variáveis de ambiente (NUNCA versionar!)
+.env
+.env.*
+*.env # Cobre variações como .env.local, etc.
+
+# Arquivos de log gerados
+gemini_json_error_response.txt
 *.log
-gemini_json_error_response.txt # Seus arquivos de log de erro
+logs/
+
+# Outros comuns
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
