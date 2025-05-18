@@ -6,6 +6,28 @@ Bem-vindo(a) à Horta Inteligente! Seu assistente pessoal com Inteligência Arti
 
 https://hortainteligente-imersaoia.streamlit.app/
 
+## :desktop: Exibição de funcionamento
+
+Tela Inicial
+![tela_inicial](https://github.com/user-attachments/assets/97585c7f-a2b6-4021-88e8-ee37f2f4a5fb)
+Usuário é recebido e solicitado a localidade onde irá plantar. Isso impacta na tomada de decisões dos agentes de que plantas sugerir.
+
+Preferências do Usuário
+![tela_preferencias](https://github.com/user-attachments/assets/253c47f1-805d-4ccf-8d92-e9ee8226e1e4)
+Aqui a pessoa define o espaço disponível para plantio, tempo que ela pode dedicar às suas plantinhas e se ela tem alguma preferência de cultura.
+
+Tela de Sugestões
+![tela_sugestoes](https://github.com/user-attachments/assets/d38bdab0-2f47-4cd2-be4a-761c03f6efb3)
+Os agentes indicam baseado nas informações do usuário, as melhores opções de plantas.
+
+Tela do Guia de plantio
+![tela_guia](https://github.com/user-attachments/assets/8db7cf6a-2365-4e5b-a7e8-510d43dbb29e)
+Ao selecionar uma planta, você recebe informações em detalhe de como proceder para cultivar sua própria comida!
+
+Indicações de compra
+![image](https://github.com/user-attachments/assets/8106b541-7467-48ef-901a-e997fc0edce7)
+E no final o sistema já te mostra possíveis locais próximos de você ou online para adquirir suas mudas ou sementes!
+
 ## 🎯 Objetivo do Projeto
 
 O Horta Inteligente visa democratizar o cultivo de alimentos em casa, oferecendo uma ferramenta inteligente e acessível que considera as condições locais do usuário em qualquer lugar do Brasil, suas preferências de cultivo e o tempo disponível. Acreditamos que todos podem ter o prazer de colher o que plantam, e este sistema foi construído para empoderar você nessa jornada, fornecendo conhecimento e orientação prática.
@@ -85,30 +107,6 @@ Siga estes passos para ter o Horta Inteligente rodando na sua máquina:
     streamlit run app.py
     ```
     A aplicação deverá abrir automaticamente no seu navegador web.
-
-## 📂 Estrutura do Projeto (Visão Geral)
-
-horta-inteligente-app/
-├── app.py                     # Script principal da aplicação Streamlit
-├── agentes/                   # Contém as classes dos diferentes agentes de IA
-│   ├── init.py
-│   ├── agente_localizador.py
-│   ├── agente_gestor_perfil.py
-│   ├── agente_estilizador.py      # Define esquema JSON, formata guias
-│   ├── agente_pesquisador.py    # Busca dados de plantas com Gemini
-│   ├── agente_recomendador.py   # Lógica de sugestão e pontuação
-│   ├── agente_gerador_guia.py   # Orquestra a geração do guia
-│   ├── agente_redator_ia.py     # Gera textos amigáveis (justificativas, dicas)
-│   └── agente_conector_comercial.py # Gera links para compra
-├── utils/                     # Módulos com funções auxiliares
-│   ├── init.py
-│   └── api_clients.py         # Funções para Nominatim, simulações, e chamada ao Gemini
-├── assets/                    # Para imagens estáticas como logos, imagem da tela inicial
-│   └── imagem_inicial.png     # Exemplo
-├── .env                       # Para armazenar sua chave de API localmente (NÃO VERSIONAR)
-├── requirements.txt           # Lista de dependências Python
-├── .gitignore                 # Especifica arquivos e pastas a serem ignorados pelo Git
-└── README.md                  # Este arquivo!
 
 ## 📖 Como Usar a Aplicação
 
