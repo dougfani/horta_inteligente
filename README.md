@@ -46,7 +46,7 @@ Siga estes passos para ter o Horta Inteligente rodando na sua máquina:
 
 2.  **Clonar o Repositório:**
     ```bash
-    git clone <URL_DO_SEU_REPOSITORIO_NO_GITHUB>
+    git clone https://github.com/dougfani/horta_inteligente/
     cd horta-inteligente-app
     ```
 
