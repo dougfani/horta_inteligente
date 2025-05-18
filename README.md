@@ -121,6 +121,10 @@ Siga estes passos para ter o Horta Inteligente rodando na sua máquina:
 6.  **Onde Encontrar:** No final do guia, você encontrará links para buscar sementes/mudas.
 7.  **Nova Consulta:** Use o botão na barra lateral ou no final do fluxo para iniciar uma nova pesquisa.
 
+## :brain: Como cheguei aos resultados
+
+* Através do Google Gemini, criei duas Gems, uma tinha função de codificar, identificar os erros e melhorar o código. E para a outra fiz uma amálgama de um analista de sistemas com um técnico agrícola que gerava os melhores conceitos e abstrações, e eram para a gem que programava.
+
 ## 🔮 Próximos Passos e Melhorias Futuras (Sugestões)
 
 * Implementar um Agente Revisor IA para refinar ainda mais os textos gerados.
@@ -129,7 +133,7 @@ Siga estes passos para ter o Horta Inteligente rodando na sua máquina:
 * Permitir que o usuário salve suas plantas "plantadas" e acompanhe seu desenvolvimento.
 * Interface visual ainda mais elaborada e interativa.
 
-## :pray: aAgradecimentos
+## :pray: Agradecimentos
 
 * Agradeço a equipe da Alura por promover essa Imersão IA da Alura e do Google
 * Em especial aos mestres e mestra jedi da imersão, Fabricio Carraro, Luciano Martins e a Valquíria Alencar.
