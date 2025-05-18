@@ -6,6 +6,190 @@ from datetime import datetime
 import random 
 from dotenv import load_dotenv 
 
+# --- Configurações da Página Streamlit (PRIMEIRO COMANDO STREAMLIT) ---
+st.set_page_config(
+    page_title="Horta Inteligente", 
+    page_icon="🌱", 
+    layout="centered", # Layout centralizado para melhor leitura
+    initial_sidebar_state="expanded" 
+)
+
+# --- CSS Customizado para Tema Claro "Roça/Horta" ---
+# Injetado diretamente para simplicidade e garantir aplicação.
+st.markdown("""
+<style>
+    /* Importa as fontes do Google Fonts */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Domine:wght@400;700&display=swap');
+
+    /* --- Variáveis de Cor (Tema "Roça/Horta" Simplificado) --- */
+    :root {
+        --cor-fundo-pagina: #F9F6F0;     /* Bege bem claro, como papel reciclado */
+        --cor-fundo-container: #FFFFFF;  
+        --cor-texto-titulos: #5D4037;    /* Marrom escuro */
+        --cor-texto-principal: #6D4C41; /* Marrom médio */
+        --cor-texto-secundario: #7A6C62; /* Marrom claro */
+        --cor-verde-principal: #aae576;      /* Verde oliva/folha */
+        --cor-verde-destaque: #aae576;   /* Verde lima claro */
+        --cor-laranja-acao: #F57C00;     /* Laranja mais vibrante para botões principais */
+        --cor-laranja-acao-hover: #EF6C00;
+        --cor-borda: #D7CCC8;            
+        --sombra-suave: 0 2px 8px rgba(0, 0, 0, 0.08);
+        --border-radius-padrao: 8px;
+        --fonte-titulos: 'Domine', serif;        
+        --fonte-corpo: 'Inter', sans-serif;
+    }
+
+    /* --- Estilos Globais --- */
+    body, .stApp {
+        font-family: var(--fonte-corpo);
+        color: var(--cor-texto-principal);
+        background-color: var(--cor-fundo-pagina) !important;
+    }
+
+    /* Container principal do Streamlit (onde o conteúdo das etapas aparece) */
+    /* Este seletor pode precisar de ajuste dependendo da versão do Streamlit e do tema base */
+    .main .block-container {
+        max-width: 720px; 
+        margin: 1.5rem auto 3rem auto; /* Menor margem no topo */
+        padding: 1.5rem 2rem !important; 
+        background-color: var(--cor-fundo-container);
+        border-radius: var(--border-radius-padrao);
+        box-shadow: var(--sombra-suave);
+    }
+
+    /* Tipografia */
+    h1 { /* Para st.title() */
+        font-family: var(--fonte-titulos); 
+        color: var(--cor-texto-titulos); 
+        text-align: center; 
+        font-size: 2.2em; 
+        margin-bottom: 1rem; 
+    }
+    h2 { /* Para st.header() - Títulos de seção */
+        font-family: var(--fonte-titulos);
+        color: var(--cor-texto-titulos); 
+        border-bottom: 2px solid var(--cor-verde-destaque); 
+        padding-bottom: 0.5rem; 
+        margin-top: 2rem; 
+        margin-bottom: 1.2rem; 
+        font-size: 1.6em; 
+        text-align: left;
+    }
+    h3 { /* Para st.subheader() e ### do Markdown */
+        font-family: var(--fonte-titulos);
+        color: var(--cor-verde-principal); 
+        margin-top: 1.5rem; 
+        margin-bottom: 0.8rem; 
+        font-size: 1.3em; 
+        text-align: left;
+    }
+    p, .stMarkdown p, li { color: var(--cor-texto-secundario); font-size: 1em; line-height: 1.65; margin-bottom: 0.8rem; }
+    strong { color: var(--cor-texto-titulos); }
+    a { color: var(--cor-laranja-acao); font-weight: 600; }
+    a:hover { color: var(--cor-laranja-acao-hover); }
+
+    /* Componentes Streamlit */
+    .stButton>button {
+        border: none; border-radius: var(--border-radius-padrao); color: white; 
+        background-color: var(--cor-verde-principal); 
+        padding: 9px 22px; font-weight: 600; font-size: 0.95em; /* Botões um pouco menores */
+        box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    .stButton>button:hover { background-color: #4A5D23; transform: translateY(-1px); }
+    
+    /* Botão de ação principal (ex: "Analisar Localização", "Buscar Sugestões") */
+    .stButton[key*="btn_submit"] button, 
+    .stButton[key*="btn_iniciar"] button { /* A chave do seu botão "Iniciar Minha Horta" deve ser btn_iniciar_app... */
+        background-color: var(--cor-laranja-acao);
+        font-size: 1em; /* Tamanho do botão principal */
+    }
+    .stButton[key*="btn_submit"] button:hover,
+    .stButton[key*="btn_iniciar"] button:hover {
+        background-color: var(--cor-laranja-acao-hover);
+    }
+
+    .stTextInput input, .stTextArea textarea {
+        border-radius: 6px; border: 1.5px solid var(--cor-borda);
+        background-color: #FFFFFF; padding: 10px 12px; 
+        font-size: 0.95em; /* Fonte do input um pouco menor */
+        color: var(--cor-texto-principal);
+    }
+    .stTextInput input:focus, .stTextArea textarea:focus {
+        border-color: var(--cor-verde-principal); box-shadow: 0 0 0 2px rgba(85, 107, 47, 0.15);
+    }
+    .stTextInput input::placeholder, .stTextArea textarea::placeholder { color: #A89F97 !important; opacity: 1; }
+
+    /* Estilo para os Rádios */
+    .stRadio div[role="radiogroup"] { margin-top: 0.5rem; } /* Reduz espaço acima dos radios */
+    .stRadio div[role="radiogroup"] > label { 
+        background-color: #FDFDF5; /* Fundo do card da opção mais sutil */
+        padding: 0.7rem 0.9rem; 
+        border-radius: 8px; 
+        margin-bottom: 0.5rem; /* Menos espaço entre opções */
+        border: 1px solid var(--cor-borda);
+        cursor: pointer;
+    }
+    .stRadio div[role="radiogroup"] > label:hover { border-color: var(--cor-verde-destaque); background-color: #F5F5E8;}
+    .stRadio > label > div[data-baseweb="radio"] > div > div { border-color: var(--cor-verde-principal) !important; }
+    .stRadio > label[data-baseweb="radio"] input[type="radio"]:checked + div {
+        background-color: var(--cor-verde-destaque) !important; 
+        border-color: var(--cor-verde-folha) !important;
+    }
+    .stRadio div[role="radiogroup"] > label p { color: var(--cor-texto-principal); font-weight: 500; margin-bottom:0 !important; }
+    
+    /* Alertas (st.info, st.success, etc.) */
+    .stAlert { border-radius: 8px; padding: 1rem; font-size: 0.95em; border-left-width: 4px;}
+    .stAlert[data-testid="stInfo"] { border-left-color: #607D8B; background-color: #ECEFF1;} 
+    .stAlert[data-testid="stSuccess"] { border-left-color: var(--cor-verde-principal); background-color: #E6F4EA;}
+    .stAlert[data-testid="stWarning"] { border-left-color: var(--cor-laranja-terracota); background-color: #FFF3E0;}
+    .stAlert[data-testid="stError"] { border-left-color: #C62828; background-color: #FFEBEE;}
+
+    /* Sidebar */
+    .stSidebar { background-color: #F4F1EA; /* Bege mais quente para sidebar */ border-right: 1px solid var(--cor-borda); }
+    .stSidebar .stButton>button { background-color: var(--cor-verde-folha); width: 100%; color: white; }
+    .stSidebar .stButton>button:hover { background-color: #4A5D23; }
+    .stSidebar h1, .stSidebar h2, .stSidebar h3 { color: var(--cor-texto-titulos); }
+
+    /* Estilos específicos para cards de sugestão e guia (se você os usa com classes CSS) */
+    .suggestion-card { /* Se você envolve suas sugestões com <div class='suggestion-card'> */
+        background-color: var(--cor-fundo-container); border-radius: var(--border-radius-padrao);
+        padding: 1.5rem; margin-bottom: 1.5rem; box-shadow: var(--sombra-suave);
+        border-left: 4px solid var(--cor-verde-principal);
+    }
+    .suggestion-card img { width: 100%; height: 160px; object-fit: cover; border-radius: 6px; margin-bottom: 1rem; }
+    .guide-content { /* Se você envolve seu guia com <div class='guide-content'> */
+         padding: 0.5rem; /* O container principal já tem padding */
+    }
+    .guide-content h3 {font-size: 1.3em; margin-top: 1.8rem;}
+
+    div[data-baseweb="tooltip"], 
+    div[data-testid="stTooltipContent"] {
+    background-color: #FFFFFF !important; /* Fundo branco para o tooltip */
+    color: var(--cor-texto-principal) !important; /* Texto escuro */
+    border: 1px solid var(--cor-borda) !important;
+    border-radius: var(--border-radius-padrao) !important;
+    box-shadow: var(--sombra-suave) !important;
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.9em !important;
+    font-family: var(--fonte-corpo) !important;
+}
+
+/* Se o tooltip for o title nativo do HTML, este CSS não terá efeito.
+   Nesse caso, a solução é evitar que o Streamlit coloque texto longo no atributo 'title'
+   do input, o que geralmente acontece com o parâmetro 'help' do st.text_input. */
+
+/* Para garantir que o input em si não tenha cores escuras inesperadas no hover/focus que possam parecer um tooltip */
+.stTextInput input:hover, 
+.stTextInput input:focus {
+    background-color: #FFFFFF !important; /* Garante fundo branco no hover/focus */
+    color: var(--cor-texto-principal) !important; /* Garante texto escuro */
+}
+            
+</style>
+""", unsafe_allow_html=True)
+
+
+
 # Importações das suas classes de agentes e funções utilitárias
 from agentes.agente_localizador import AgenteLocalizadorAmbiental
 from agentes.agente_gestor_perfil import AgenteGestorPerfilUsuario
@@ -123,7 +307,7 @@ if 'planta_selecionada_guia' not in st.session_state: st.session_state.planta_se
 if 'guia_gerado_md' not in st.session_state: st.session_state.guia_gerado_md = None
 
 if 'esquema_definido' not in st.session_state and gemini_configurado_com_sucesso and ag_estilizador:
-    with st.spinner("Preparando assistente (definindo estruturas de dados com Gemini)..."):
+    with st.spinner("Bem vindo! Preparando nossas enxadas e regadores..."):
         esquema = ag_estilizador.get_esquema_dados_planta()
         if esquema: st.session_state.esquema_definido = True; print("Esquema de dados OK.")
         else: st.session_state.esquema_definido = False; st.error("Falha ao definir esquema de dados."); st.stop()
@@ -132,8 +316,16 @@ elif not gemini_configurado_com_sucesso or not ag_estilizador:
 
 
 # --- 4. Título Principal ---
-st.title("🌿 Horta em Casa Inteligente 🥕")
-st.markdown("Seu assistente pessoal com IA para um cultivo de sucesso!")
+st.title("🌿 Horta Inteligente 🥕")
+st.markdown("""
+Bem-vindo(a) ao **Horta Inteligente**! 🌱✨
+
+Este sistema foi criado para te ajudar a planejar sua horta de forma personalizada. 
+Basta nos informar sua **localização** e algumas **preferências de cultivo**, como o espaço disponível e o tipo de planta que deseja. 
+Nossa Inteligência Artificial (IA) analisará esses dados e as condições ambientais da sua região para sugerir as plantas mais adequadas e fornecer um guia de cultivo detalhado para cada uma delas. 
+Prepare a terra e vamos cultivar juntos!
+""")
+# st.markdown("---")
 
 # --- 5. Lógica do Fluxo Principal ---
 
@@ -154,7 +346,7 @@ if st.session_state.etapa_atual != "inicio":
 
 
 if st.session_state.etapa_atual == "inicio":
-    st.header("1. Onde você vai plantar?")
+    st.header("Onde você vai plantar?")
     # Garantir que ag_localizador foi instanciado
     if ag_localizador:
         endereco_digitado = st.text_input("Digite sua cidade e estado (ex: Salvador, BA) ou CEP:", key="loc_input_main")
@@ -175,15 +367,16 @@ if st.session_state.etapa_atual == "inicio":
 
 
 elif st.session_state.etapa_atual == "preferencias":
-    st.header("2. Suas Preferências de Cultivo")
+    st.header("Suas Preferências de Cultivo")
     if st.session_state.dados_ambientais:
         loc_info = st.session_state.dados_ambientais['localizacao']
         st.markdown(f"**Localização Confirmada:** {loc_info.get('endereco_formatado', 'N/A')}")
         # ... (outros prints de clima/solo se desejar) ...
     
-    st.markdown("---"); st.markdown("**Sobre o Preparo do Solo/Vasos:**")
+    # st.markdown("---"); 
+    st.markdown("**Sobre o Preparo do Solo/Vasos:**")
     st.info("Lembre-se: Ao escolher 'Canteiros no solo', nossas sugestões assumem que você preparará e melhorará seu solo local. Para 'Vasos', o foco será no substrato adequado.")
-    st.markdown("---")
+    # st.markdown("---")
 
     espaco_metodo_opcoes_st = {
         "1": "Vasos e espaços bem pequenos (ex: janela, varandinha, <1m²)",
@@ -193,7 +386,7 @@ elif st.session_state.etapa_atual == "preferencias":
     escolha_em_key = st.radio("Como e onde você planeja plantar principalmente?", options=list(espaco_metodo_opcoes_st.keys()), format_func=lambda k: espaco_metodo_opcoes_st[k], key="radio_esp_met_main")
     tempo_opcoes_st = {"1": "Pouco (<1-2h/semana)", "2": "Moderado (2-4h/semana)", "3": "Bastante (>4h/semana)"}
     escolha_tempo_key = st.radio("Quanto tempo você pode dedicar às plantas por semana?", options=list(tempo_opcoes_st.keys()), format_func=lambda k: tempo_opcoes_st[k], key="radio_tempo_main")
-    tipos_alimento_input_st = st.text_input("Quais tipos de alimentos você tem preferência? (Ex: Folhosas, Frutos, Ervas. Digite 'todos' ou separe por vírgula)", placeholder="Folhosa, Fruto", key="text_tipo_alim_main")
+    tipos_alimento_input_st = st.text_input("Quais tipos de plantas você tem preferência? (Ex: Folhosas, Frutos, Ervas. Digite 'todos' ou separe por vírgula)", placeholder="Folhosa, Fruto", key="text_tipo_alim_main")
 
     if st.button("Buscar Sugestões de Plantas", key="btn_submit_prefs_main"):
         map_escolha_em = {
@@ -222,9 +415,9 @@ elif st.session_state.etapa_atual == "preferencias":
         st.rerun() # CORRIGIDO
 
 elif st.session_state.etapa_atual == "sugestoes":
-    st.header("3. Nossas Sugestões Para Você 🌱")
+    st.header("Nossas Sugestões Para Você 🌱")
     if not st.session_state.sugestoes_plantas and ag_recomendador and st.session_state.preferencias_usuario and st.session_state.dados_ambientais:
-        with st.spinner("Aguarde enquanto o Gemini analisa e busca as melhores plantas..."):
+        with st.spinner("Aguarde enquanto o Gemini analisa e busca as melhores plantas... Pode demorar um pouquinho mas vale a pena!"):
             sugestoes = ag_recomendador.gerar_sugestoes_otimizadas(
                 st.session_state.preferencias_usuario, st.session_state.dados_ambientais, max_sugestoes_finais=3)
             st.session_state.sugestoes_plantas = sugestoes
@@ -282,7 +475,7 @@ elif st.session_state.etapa_atual == "sugestoes":
                     st.session_state.etapa_atual = "guia"
                     st.session_state.guia_gerado_md = None 
                     st.rerun()
-                st.markdown("---") 
+                # st.markdown("---") 
 
 elif st.session_state.etapa_atual == "guia":
     planta_para_guia = st.session_state.planta_selecionada_guia
