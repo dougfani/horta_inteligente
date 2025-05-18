@@ -129,6 +129,11 @@ Siga estes passos para ter o Horta Inteligente rodando na sua máquina:
 * Permitir que o usuário salve suas plantas "plantadas" e acompanhe seu desenvolvimento.
 * Interface visual ainda mais elaborada e interativa.
 
+## :pray: aAgradecimentos
+
+* Agradeço a equipe da Alura por promover essa Imersão IA da Alura e do Google
+* Em especial aos mestres e mestra jedi da imersão, Fabricio Carraro, Luciano Martins e a Valquíria Alencar.
+
 ---
 
 Sinta-se à vontade para usar, modificar e expandir este projeto!
