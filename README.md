@@ -2,6 +2,10 @@
 
 Bem-vindo(a) à Horta Inteligente! Seu assistente pessoal com Inteligência Artificial (Google Gemini) projetado para ajudar você a cultivar suas próprias plantas comestíveis, mesmo em pequenos espaços, vasos ou canteiros. Obtenha recomendações personalizadas, guias de plantio detalhados e dicas de manejo adaptadas à sua realidade!
 
+## Acesse, está no ar!
+
+https://hortainteligente-imersaoia.streamlit.app/
+
 ## 🎯 Objetivo do Projeto
 
 O Horta Inteligente visa democratizar o cultivo de alimentos em casa, oferecendo uma ferramenta inteligente e acessível que considera as condições locais do usuário em qualquer lugar do Brasil, suas preferências de cultivo e o tempo disponível. Acreditamos que todos podem ter o prazer de colher o que plantam, e este sistema foi construído para empoderar você nessa jornada, fornecendo conhecimento e orientação prática.
