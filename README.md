@@ -28,9 +28,6 @@ Indicações de compra
 ![image](https://github.com/user-attachments/assets/8106b541-7467-48ef-901a-e997fc0edce7)
 E no final o sistema já te mostra possíveis locais próximos de você ou online para adquirir suas mudas ou sementes!
 
-## :cinema: Vídeo de Apresentação
-https://youtu.be/jq89qjuGO-k
-
 ## 🎯 Objetivo do Projeto
 
 O Horta Inteligente visa democratizar o cultivo de alimentos em casa, oferecendo uma ferramenta inteligente e acessível que considera as condições locais do usuário em qualquer lugar do Brasil, suas preferências de cultivo e o tempo disponível. Acreditamos que todos podem ter o prazer de colher o que plantam, e este sistema foi construído para empoderar você nessa jornada, fornecendo conhecimento e orientação prática.
