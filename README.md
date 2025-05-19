@@ -140,6 +140,10 @@ Siga estes passos para ter o Horta Inteligente rodando na sua máquina:
 * Agradeço a equipe da Alura por promover essa Imersão IA da Alura e do Google
 * Em especial aos mestres e mestra jedi da imersão, Fabricio Carraro, Luciano Martins e a Valquíria Alencar.
 
+## Linkedin
+
+https://www.linkedin.com/in/douglasfloriano/
+
 ---
 
 Sinta-se à vontade para usar, modificar e expandir este projeto!
