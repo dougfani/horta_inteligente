@@ -6,7 +6,7 @@ Bem-vindo(a) à Horta Inteligente! Seu assistente pessoal com Inteligência Arti
 
 https://hortainteligente-imersaoia.streamlit.app/
 
-## :desktop:  Exibição de funcionamento
+## :computer:   Exibição de funcionamento
 
 Tela Inicial
 ![tela_inicial](https://github.com/user-attachments/assets/97585c7f-a2b6-4021-88e8-ee37f2f4a5fb)
@@ -127,6 +127,8 @@ Siga estes passos para ter o Horta Inteligente rodando na sua máquina:
 ## :brain: Como cheguei aos resultados
 
 * Através do Google Gemini, criei duas Gems, uma tinha função de codificar, identificar os erros e melhorar o código. E para a outra fiz uma amálgama de um analista de sistemas com um técnico agrícola que gerava os melhores conceitos e abstrações, e eram para a gem que programava.
+
+* Uma ferramenta importante que utilizei foi o Google Colabs para rodas os primeiros códigos em Python, testar os agentes, os possíveis erros e cenários, para depois passar para o Streamlit com uma interface gráfica mais funcional e acessível do projeto.
 
 ## 🔮 Próximos Passos e Melhorias Futuras (Sugestões)
 
