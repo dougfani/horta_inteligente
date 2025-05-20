@@ -2,7 +2,7 @@
 
 Bem-vindo(a) à Horta Inteligente! Seu assistente pessoal com Inteligência Artificial (Google Gemini) projetado para ajudar você a cultivar suas próprias plantas comestíveis, mesmo em pequenos espaços, vasos ou canteiros. Obtenha recomendações personalizadas, guias de plantio detalhados e dicas de manejo adaptadas à sua realidade!
 
-Este projeto ficou em 6° lugar na avaliação da banca técnica na [Imersão IA Alura com Google Gemini](https://grupoalura.notion.site/Imers-o-IA-Guia-de-Mergulho-1d2379bdd09b803982a5ee1abd89e0cb#97d51e2c6df04a1e9b72ac90a701da30:~:text=6%C2%BA%20lugar%3A%20Douglas%20Floriano)
+Este projeto ficou em 6° lugar na avaliação da banca técnica na [Imersão IA Alura com Google Gemini](https://grupoalura.notion.site/Imers-o-IA-Guia-de-Mergulho-1d2379bdd09b803982a5ee1abd89e0cb#97d51e2c6df04a1e9b72ac90a701da30:~:text=6%C2%BA%20lugar%3A%20Douglas%20Floriano).
 
 ## Acesse, está no ar!
 
