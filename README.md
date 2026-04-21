@@ -4,10 +4,6 @@ Bem-vindo(a) à Horta Inteligente! Seu assistente pessoal com Inteligência Arti
 
 Este projeto ficou em 6° lugar na avaliação da banca técnica na [Imersão IA Alura com Google Gemini](https://grupoalura.notion.site/Imers-o-IA-Guia-de-Mergulho-1d2379bdd09b803982a5ee1abd89e0cb#97d51e2c6df04a1e9b72ac90a701da30:~:text=6%C2%BA%20lugar%3A%20Douglas%20Floriano).
 
-## Acesse, está no ar!
-
-https://hortainteligente-imersaoia.streamlit.app/
-
 ## :computer:   Exibição de funcionamento
 
 Tela Inicial
